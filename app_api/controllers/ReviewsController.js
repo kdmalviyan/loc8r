@@ -1,19 +1,27 @@
 /**
  * http://usejsdoc.org/
  */
-var helpers = require('../helpers/Helper.js')
+var helpers = require('../helpers/Helper')
+var status = 200;
+var content = {
+	"msg" : "Review Testing APIs"
+};
 
 module.exports = {
-	reviewsCreate : function(req, res) {
-		helpers.sendJsonResponse(res, 200, {"status" : "success"});
+	reviewReadOne : function(req, res) {
+		res.status(status);
+		res.json(content);
 	},
-	reviewsReadOne : function(req, res) {
-		helpers.sendJsonResponse(res, 200, {"status" : "success"});
+	reviewUpdateOne : function(req, res) {
+		res.status(status);
+		res.json(content);
 	},
-	reviewsUpdateOne : function(req, res) {
-		helpers.sendJsonResponse(res, 200, {"status" : "success"});
+	reviewDeleteOne : function(req, res) {
+		res.status(status);
+		res.json(content);
 	},
-	reviewsDeleteOne : function(req, res) {
-		helpers.sendJsonResponse(res, 200, {"status" : "success"});
+	createReview : function(req, res) {
+		res.status(status);
+		res.json(content);
 	}
 };

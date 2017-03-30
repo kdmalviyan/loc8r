@@ -1,28 +1,4 @@
 var mongoose = require('mongoose');
-var locationSchema = new mongoose.Schema({
-	name : {
-		type : String,
-		required : true
-	},
-	address : String,
-	rating : {
-		type : Number,
-		"default" : 0,
-		min : 0,
-		max : 5
-	},// The word default doesn’t have to be in quotes, but it’s a reserved
-	// word in JavaScript so it’s a good idea to do so.
-	facilities : [ String ],
-	coords : {
-		type : [ Number ],
-		index : '2dsphare'
-	},
-	// To meet the Geo JSON specification, a coordinate pair must be entered
-	// into
-	// the array in the correct order: longitude then latitude.
-	openingTimes : [ openingTimeSchema ],
-	reviews : [ reviewSchema ]
-});
 
 var openingTimeSchema = new mongoose.Schema({
 	days : {
@@ -50,6 +26,31 @@ var reviewSchema = new mongoose.Schema({
 		type : Date,
 		"default" : Date.now
 	}
+});
+
+var locationSchema = new mongoose.Schema({
+	name : {
+		type : String,
+		required : true
+	},
+	address : String,
+	rating : {
+		type : Number,
+		"default" : 0,
+		min : 0,
+		max : 5
+	},// The word default doesn’t have to be in quotes, but it’s a reserved
+	// word in JavaScript so it’s a good idea to do so.
+	facilities : [ String ],
+	coords : {
+		type : [ Number ],
+		index : '2dsphare'
+	},
+	// To meet the Geo JSON specification, a coordinate pair must be entered
+	// into
+	// the array in the correct order: longitude then latitude.
+	openingTimes : [ openingTimeSchema ],
+	reviews : [ reviewSchema ]
 });
 
 
